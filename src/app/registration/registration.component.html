@@ -1,0 +1,49 @@
+<h1 class="text-center">Regisztráció</h1>
+<div class="form">
+
+    <div class="data">
+        <label for="journey">Utazás:</label>
+        <select name="journeyId" id="journey" [(ngModel)]="model.journeyId">
+            <option value="">Kérem válasszon</option>
+            @for (item of journeys; track $index) {
+              <option [value]="item.id">{{item.destination}}</option>
+            }
+        </select>
+    </div>
+
+    <div class="data">
+        <label for="name">Az Ön neve:</label>
+        <input type="text" id="name" name="name" [(ngModel)]="model.name">
+    </div>
+
+    <div class="data">
+        <label for="email">Az Ön e-mail címe:</label>
+        <input type="text" id="email" name="email" [(ngModel)]="model.email">
+    </div>
+
+    <div class="data">
+        <label for="numberOfParticipants">Résztvevők száma:</label>
+        <input type="number" id="numberOfParticipants" name="numberOfParticipants" [(ngModel)]="model.numberOfParticipants">
+    </div>
+    <div class="data">
+        <label for="lastCovidVaccineDate">Utolsó COVID oltásának dátuma:</label>
+        <input type="date" id="lastCovidVaccineDate" name="lastCovidVaccineDate" [(ngModel)]="model.lastCovidVaccineDate">
+    </div>
+
+    <div class="data">
+        <input type="checkbox" id="acceptedConditions" name="acceptedConditions" [(ngModel)]="model.acceptedConditions">
+        <label for="acceptedConditions">Felhasználási feltételeket elfogadom</label>
+    </div>
+
+    <div class="data">
+        <input type="button" value="Küldés" style="margin: 0 220px; width: 160px;" (click)="sendReg()">
+    </div>
+
+<!-- 
+    @if (errirMessage) {
+      <div class="error">
+          <span>Hiányos adatok...</span>
+          <span>(click=errirMessage='')</span>
+      </div>
+    } -->
+</div>

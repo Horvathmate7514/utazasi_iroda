@@ -1,0 +1,24 @@
+<h1>Kínálatunk</h1>
+
+<table>
+  <tr>
+    <th>Ország</th>
+    <th>Utazási Mód</th>
+    <th>Indulás</th>
+    <th>Max létszám</th>
+    <th>Leírás</th>
+    <th>Fénykép</th>
+  </tr>
+  @for (item of journeys; track $index) {
+  <tr>
+    <td>{{item.country}}</td>
+    <td>{{item.vehicle.type}}</td>
+    <td>{{item.departure}}</td>
+    <td>{{item.capacity}}</td>
+    <td>{{item.description}}
+      <a routerLink="registration"></a>
+    </td>
+    <td><img [src]="item.pictureUrl" height="120"></td>
+  </tr>
+  }
+</table>
